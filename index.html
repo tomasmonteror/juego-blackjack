@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blackjack</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    
+    <header class="titulo">
+        Blackjack
+    </header>
+
+    <div class="row mt-2">
+        <div id="divBotones" class="col text-center">
+            <button id="btnNuevo" class="btn btn-danger">Nuevo juego</button>
+            <button id="btnPedir" disabled="true" class="btn btn-primary">Pedir carta</button>
+            <button id="btnDetener" disabled="true" class="btn btn-primary">Plantarse</button>
+        </div>
+    </div>
+
+    <div class="row container">
+        <div class="col">
+            <h1>Jugador 1 - <small>0</small></h1>
+            <div id="jugador-cartas" class="divCartas">
+            <!--<img class="carta" src="assets/cartas/2C.png" alt="">-->
+            </div>
+        </div>
+    </div>
+
+    <div class="row container">
+        <div class="col">
+            <h1>Ordenador - <small>0</small></h1>
+            <div id="computadora-cartas" class="divCartas">
+            <!-- <img class="carta" src="assets/cartas/3C.png" alt=""> -->
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/underscore-min.js"></script>
+    <!-- https://javascript-minifier.com/ -->
+    <script src="assets/js/juego-min.js"></script>
+    <script>
+        // Coger una carta
+        const pedirCarta = () => {
+
+        if(deck.length === 0) {
+            throw 'No quedan cartas';
+        }
+
+        const carta = deck.pop();
+        return carta;
+        }
+    </script>
+
+    <script>
+        // Puedo llamarlo desde fuera porque está en la parte pública del patrón Módulo
+        miJuego.nuevoJuego();
+    </script>
+</body>
+</html>
